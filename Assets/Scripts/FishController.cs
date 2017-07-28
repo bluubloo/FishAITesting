@@ -42,6 +42,7 @@ public class FishController : MonoBehaviour {
 
         Vector3 vectorAvoid = Vector3.zero;
         Vector3 groupCentre = this.transform.position;
+        Vector3 groupFacing = this.transform.forward;
         float groupSpeed = this.speed + 0.1f;
 
         int groupSize = 1;
@@ -54,6 +55,7 @@ public class FishController : MonoBehaviour {
                 if(seperation <= neighbourDistance)
                 {
                     groupCentre += otherFish.transform.position;
+                    groupFacing += otherFish.transform.forward;
                     groupSize++;
 
                     //If other fish is too close then avoid
@@ -70,10 +72,10 @@ public class FishController : MonoBehaviour {
         if(groupSize > 1)
         {
             speed = groupSpeed / groupSize;
-            Debug.Log("Group Size: " + groupSize + " SPeed: " + speed);
+            groupFacing /= groupSize;
 
             groupCentre /= groupSize;
-            Vector3 direction = groupCentre + vectorAvoid - this.transform.position;
+            Vector3 direction = groupCentre + vectorAvoid + groupFacing - this.transform.position;
             if(direction != Vector3.zero)
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);

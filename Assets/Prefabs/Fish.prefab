@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23987765304128190}
   - component: {fileID: 114733547047162344}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699205632007446}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: e3890e9ceeaaa324980b118e12294636, type: 3}
 --- !u!114 &114733547047162344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,7 +97,7 @@ MonoBehaviour:
   speedMax: 4
   rotationSpeed: 4
   neighbourDistance: 5
-  avoidanceDistance: 1
+  avoidanceDistance: 2
   flock: {fileID: 0}
 --- !u!136 &136770245537177832
 CapsuleCollider:
